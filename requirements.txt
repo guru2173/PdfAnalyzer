@@ -1,0 +1,40 @@
+torch
+transformers
+gradio
+pypdf
+huggingface_hub
+faiss-cpu
+rank_bm25
+sentence-transformers
+pip install -r requirements.txt
+🧩 Simple Project Architecture Diagram
+
+Here’s the flow of your system 📈:
+
+```mermaid
+flowchart TD
+    A[User Uploads PDF] --> B[Extract Text from PDF]
+    B --> C[Split Text into Chunks]
+    C --> D1[BM25 Indexing (Sparse Retrieval)]
+    C --> D2[FAISS Indexing (Dense Retrieval)]
+    E[User Asks Question] --> F[Search Best Chunks]
+    F --> G[BM25 + FAISS Hybrid Reranking]
+    G --> H[Create Smart Prompt based on Question Type]
+    H --> I[T5 Model Generates Final Answer]
+    I --> J[Show Answer on Gradio Web App]
+```
+✅ This diagram shows step-by-step how a question is processed and answered!
+🧠 Small Explanation of Diagram Steps:
+
+| Step | What Happens |
+|---|---|
+| Upload PDF | User uploads any book/document. |
+| Extract Text | Text is extracted page by page. |
+| Split Chunks | Text is split into 512-character chunks. |
+| BM25 Indexing | Builds keyword-based search engine. |
+| FAISS Indexing | Builds meaning-based (semantic) search engine. |
+| User Asks | User types a question. |
+| Search Chunks | Best matching chunks are found (BM25 + FAISS). |
+| Smart Prompt | Creates a customized prompt based on question type. |
+| T5 Model | T5 model generates a proper answer from prompt. |
+| Gradio App | Answer is displayed neatly in the app. |
